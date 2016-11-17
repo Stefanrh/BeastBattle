@@ -18,8 +18,20 @@ namespace Sandbox
             // Now battle...How do we do that (Hint: You need a loop)
             // YOUR JOB: Insert code here to make theHero and theBeast battle
 
+            while (!theBeast.IsDead() && !theHero.IsDead())
+            {
+                // The hero deals damage to the beast
+                theBeast.ReceiveDamage(theHero.DealDamage());
 
+                if (!theBeast.IsDead())
+                {
+                    // The beast deals damage to the hero, unless it's dead
+                    theHero.ReceiveDamage(theBeast.DealDamage());
+                }
+            }
             theLog.PrintEntireBattleLog();
+
+            
 
             // The LAST line of code should be ABOVE this line
         }
